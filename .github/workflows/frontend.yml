@@ -19,26 +19,29 @@ jobs:
           distribution: 'adopt'
           java-version: '11'
 
-      - name: Go into frontend project
-        run: cd frontend
-
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
 
       - name: Lint
-        run: ./gradlew ktlintCheck
+        run: |
+          cd frontend
+          ./gradlew ktlintCheck
 
       - name: Build project
-        run: ./gradlew build
+        run: |
+          cd frontend
+          ./gradlew build
 
       - name: Run Kover code report
-        run: ./gradlew koverXmlReport
+        run: |
+          cd frontend
+          ./gradlew koverXmlReport
 
       - name: Add coverage report to PR
         id: kover
         uses: mi-kas/kover-report@v1
         with:
-          path: app/build/reports/kover/xml/report.xml
+          path: frontend/app/build/reports/kover/xml/report.xml
           token: ${{ secrets.GITHUB_TOKEN }}
           title: Code Coverage
           update-comment: true
