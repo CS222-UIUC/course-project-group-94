@@ -1,0 +1,6 @@
+# Lint
+flake8
+
+# Testing dependencies
+pytest
+pytest-cov
