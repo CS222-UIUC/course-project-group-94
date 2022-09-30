@@ -17,6 +17,9 @@ jobs:
         with:
           python-version: '3.x'
 
+      - name: Install tesseract OCR
+        run: sudo apt install tesseract-ocr -y
+
       - name: Install dependencies
         run: |
           cd backend
