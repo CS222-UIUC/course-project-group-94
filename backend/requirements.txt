@@ -11,3 +11,6 @@ pandas
 # Testing dependencies
 pytest
 pytest-cov
+
+# Dependencies
+Django
