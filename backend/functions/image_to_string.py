@@ -11,7 +11,7 @@ Parameters: imgName -> string (Name of image file)
             dataList -> list (List of string data from image)
 Returns: imgString -> string (converted string from image)
 '''
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR/tesseract'
+
 
 def convertImageToString(imgName, dataList):
     imgString = pytesseract.image_to_string(Image.open(imgName))
