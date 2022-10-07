@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-import image_to_string
+from functions import image_to_string
 
 
 def testNumOfStrings():
     listOfStrings = []
     assert len(listOfStrings) == 0, "Incorrect initial size of list"
-    imageName = "Label.jpg"
+    imageName = "tests/resources/Label.jpg"
     image_to_string.convertImageToString(imageName, listOfStrings)
     assert len(listOfStrings) == 1, "Incorrect size of list after adding " \
         "one string"
-    imageName = "OtherLabel.png"
+    imageName = "tests/resources/OtherLabel.png"
     image_to_string.convertImageToString(imageName, listOfStrings)
     assert len(listOfStrings) == 2, "Incorrect size of list after adding " \
         "two strings"
@@ -17,9 +17,9 @@ def testNumOfStrings():
 
 def testContentOfStrings():
     newList = []
-    imageName = "eng_bw.png"
+    imageName = "tests/resources/eng_bw.png"
     image_to_string.convertImageToString(imageName, newList)
-    imageName = "Label.jpg"
+    imageName = "tests/resources/Label.jpg"
     image_to_string.convertImageToString(imageName, newList)
     assert newList[0][0:14] == "Mild Splendour", "Incorrect reading of " \
         "example text"
