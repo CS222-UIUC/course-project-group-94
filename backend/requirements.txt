@@ -7,3 +7,6 @@ pytest-cov
 
 # Dependencies
 Django
+
+#database
+sqlalchemy
