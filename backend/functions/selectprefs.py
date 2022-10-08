@@ -14,4 +14,3 @@ result = connection.execute(s)
 warning = False
 if result:
     warning = True
-
