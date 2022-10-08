@@ -2,29 +2,14 @@
 from functions import image_to_string
 
 
-def testNumOfStrings():
-    listOfStrings = []
-    assert len(listOfStrings) == 0, "Incorrect initial size of list"
-    imageName = "tests/resources/Label.jpg"
-    image_to_string.convertImageToString(imageName, listOfStrings)
-    assert len(listOfStrings) == 1, "Incorrect size of list after adding " \
-        "one string"
-    imageName = "tests/resources/OtherLabel.png"
-    image_to_string.convertImageToString(imageName, listOfStrings)
-    assert len(listOfStrings) == 2, "Incorrect size of list after adding " \
-        "two strings"
-
-
 def testContentOfStrings():
-    newList = []
     imageName = "tests/resources/eng_bw.png"
-    image_to_string.convertImageToString(imageName, newList)
+    firstString = image_to_string.convertImageToString(imageName)
     imageName = "tests/resources/Label.jpg"
-    image_to_string.convertImageToString(imageName, newList)
-    assert newList[0][0:14] == "Mild Splendour", "Incorrect reading of " \
+    secondString = image_to_string.convertImageToString(imageName)
+    assert firstString[0:14] == "Mild Splendour", "Incorrect reading of " \
         "example text"
-    assert newList[1][0:15] == "Nutrition Facts", "Incorrect reading of " \
+    assert secondString[0:15] == "Nutrition Facts", "Incorrect reading of " \
         "example label"
-    assert "Total Fat" in newList[1], "Missing from Middle of Label"
-    assert "Potassium" in newList[1], "Missing from End of Label"
-    assert len(newList) == 2, "Incorrect size of list"
+    assert "Total Fat" in secondString, "Missing from Middle of Label"
+    assert "Potassium" in secondString, "Missing from End of Label"

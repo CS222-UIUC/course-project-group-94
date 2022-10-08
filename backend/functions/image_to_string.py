@@ -13,7 +13,6 @@ Returns: imgString -> string (converted string from image)
 '''
 
 
-def convertImageToString(imgName, dataList):
+def convertImageToString(imgName):
     imgString = pytesseract.image_to_string(Image.open(imgName))
-    dataList.append(imgString)
     return imgString
