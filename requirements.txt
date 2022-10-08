@@ -1,0 +1,16 @@
+# Lint
+flake8
+
+# Image reading
+pytesseract
+Pillow
+
+# Data parsing
+pandas
+
+# Testing dependencies
+pytest
+pytest-cov
+
+# Dependencies
+Django
