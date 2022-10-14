@@ -10,3 +10,10 @@ Django
 
 #database
 sqlalchemy
+
+# Image reading
+pytesseract
+Pillow
+
+# Data parsing
+pandas

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="300dp"
+        android:layout_height="500dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginBottom="148dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/inputs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/calories"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="number"
+                android:hint="@string/prompt_calories"
+                android:autofillHints="@string/prompt_calories"/>
+
+            <EditText
+                android:id="@+id/fat"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="number"
+                android:hint="@string/prompt_fat"
+                android:autofillHints="@string/prompt_fat"/>
+
+            <EditText
+                android:id="@+id/sodium"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="number"
+                android:hint="@string/prompt_sodium"
+                android:autofillHints="@string/prompt_sodium"/>
+
+            <EditText
+                android:id="@+id/carbs"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="number"
+                android:hint="@string/prompt_carbs"
+                android:autofillHints="@string/prompt_carbs"/>
+
+            <EditText
+                android:id="@+id/sugar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:autofillHints="@string/prompt_sugar"
+                android:hint="@string/prompt_sugar"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/protein"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="number"
+                android:hint="@string/prompt_protein"
+                android:autofillHints="@string/prompt_protein"/>
+
+            <EditText
+                android:id="@+id/calcium"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="number"
+                android:hint="@string/prompt_calcium"
+                android:autofillHints="@string/prompt_calcium"/>
+
+            <EditText
+                android:id="@+id/iron"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="number"
+                android:hint="@string/prompt_iron"
+                android:autofillHints="@string/prompt_iron"/>
+
+            <EditText
+                android:id="@+id/potassium"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="number"
+                android:hint="@string/prompt_potassium"
+                android:autofillHints="@string/prompt_potassium"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/addNutritionInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="Add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHeight_percent=".5"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scroll"
+        app:layout_constraintVertical_bias="0.25"
+        app:layout_constraintWidth_percent=".5" />
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="@string/submit_nutrition_info"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHeight_percent=".5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addNutritionInfo"
+        app:layout_constraintWidth_percent=".5"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

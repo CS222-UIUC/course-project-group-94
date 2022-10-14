@@ -9,4 +9,14 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="prompt_calories">Calories</string>
+    <string name="prompt_fat">Fat</string>
+    <string name="prompt_sodium">Sodium</string>
+    <string name="prompt_carbs">Carbs</string>
+    <string name="prompt_sugar">Sugar</string>
+    <string name="prompt_protein">Protein</string>
+    <string name="prompt_calcium">Calcium</string>
+    <string name="prompt_iron">Iron</string>
+    <string name="prompt_potassium">Potassium</string>
+    <string name="submit_nutrition_info">Submit</string>
 </resources>
