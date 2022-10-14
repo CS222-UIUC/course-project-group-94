@@ -8,7 +8,6 @@ The string will be stored in a list so that it can be later modified by users
 as they wish and accessed by the function to read data from the string.
 
 Parameters: imgName -> string (Name of image file)
-            dataList -> list (List of string data from image)
 Returns: imgString -> string (converted string from image)
 '''
 
