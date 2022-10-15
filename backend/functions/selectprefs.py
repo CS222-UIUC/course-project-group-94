@@ -6,7 +6,9 @@ import numpy as np
 #currently connecting to my local mySQL database (username: root, password: Group94)
 
 # Working on gathering data from the database and 
-# comparing it to the diet preferences that the user inputted to see if it goes over
+# comparing it to the diet preferences that the user inputted to see if it goes over or below
+# Created a dictionary that provides information on whether the item's calories, fat, or sugar goes above or below the preferences
+# Will add protein and carbs next week when available in diet_preferences function
 def warningSystem(calories, sugarDiet, biologicalSex, fat):
     engine = db.create_engine('mysql://root:Group94@localhost:3306/Nutrify')
     connection = engine.connect()
