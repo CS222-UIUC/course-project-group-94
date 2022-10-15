@@ -7,7 +7,7 @@ import numpy as np
 
 # Working on gathering data from the database and 
 # comparing it to the diet preferences that the user inputted to see if it goes over
-def comparePreferences(calories, sugarDiet, biologicalSex, fat):
+def warningSystem(calories, sugarDiet, biologicalSex, fat):
     engine = db.create_engine('mysql://root:Group94@localhost:3306/Nutrify')
     connection = engine.connect()
     metadata = db.MetaData()
