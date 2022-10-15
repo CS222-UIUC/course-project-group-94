@@ -7,10 +7,11 @@ metadata = db.MetaData()
 
 #based on what a person uploads each day, all columns must be reset to 0 every 24 hours
 nutrional_info = db.Table('Running Total on Daily Nutrition', metadata,
-                db.Column('Calories', db.Integer()),
-                db.Column('Fat', db.Integer()),
-                db.Column('Carbs', db.Integer()),
-                db.Column('Protein', db.Integer()),
+                db.Column('Calories', db.Float()),
+                db.Column('Fat', db.Float()),
+                db.Column('Carbs', db.Float()),
+                db.Column('Protein', db.Float()),
+                db.Column('Sugar', db.Float()),
                 db.Column('Username', db.String(63), nullable = False))
 
 #user info for logging in and tracking who's eating what
@@ -22,10 +23,11 @@ user_info = db.Table('User Info', metadata,
 #stores whether user is on low, med, or high for each nutrition category
 #table assumes that columns store a string that contains either "low", "medium", or "high"
 user_preferences = db.Table('User Preferences', metadata,
-                    db.Column('Calories', db.String(15), nullable = False),
-                    db.Column('Fat', db.String(63), nullable = False),
-                    db.Column('Carbs', db.String(63), nullable = False),
-                    db.Column('Protein', db.String(63), nullable = False),
+                    db.Column('Calories', db.Float()),
+                    db.Column('Fat', db.Float()),
+                    db.Column('Carbs', db.Float()),
+                    db.Column('Protein', db.Float()),
+                    db.Column('Sugar', db.Float()),
                     db.Column('Username', db.String(63), nullable = False))
 
 metadata.create_all(engine)
