@@ -24,24 +24,28 @@ def addRunningTotal(calories, fat, carbs, protein, sugar, username):
                                 autoload=True, autoload_with=engine)
     retrieve = db.select([nutritional_info]).where(nutritional_info.columns.
                                                    Username == username)
+    retrieve = connection.execute(retrieve).fetchall()
     arr = np.zeros(5)
     arr[0] = retrieve[0][0] + calories  # add increments
-    arr[1] = retrieve[1][0] + fat
-    arr[2] = retrieve[2][0] + carbs
-    arr[3] = retrieve[3][0] + protein
-    arr[4] = retrieve[4][0] + sugar
-    calUp = db.update([nutritional_info]).values(Calories=arr[0]).where(
-        nutritional_info.columns.Username == username)
-    fatUp = db.update([nutritional_info]).values(Fat=arr[1]).where(
-        nutritional_info.columns.Username == username)
-    carbUp = db.update([nutritional_info]).values(Carbs=arr[2]).where(
-        nutritional_info.columns.Username == username)
-    protUp = db.update([nutritional_info]).values(Protein=arr[3]).where(
-        nutritional_info.columns.Username == username)
-    sugUp = db.update([nutritional_info]).values(Sugar=arr[4]).where(
-        nutritional_info.columns.Username == username)
+    arr[1] = retrieve[0][1] + fat
+    arr[2] = retrieve[0][2] + carbs
+    arr[3] = retrieve[0][3] + protein
+    arr[4] = retrieve[0][4] + sugar
+    calUp = db.update(nutritional_info).values(Calories=arr[0])
+    calUp = calUp.where(nutritional_info.columns.Username == username)
+    fatUp = db.update(nutritional_info).values(Fat=arr[1])
+    fatUp = fatUp.where(nutritional_info.columns.Username == username)
+    carbUp = db.update(nutritional_info).values(Carbs=arr[2])
+    carbUp = carbUp.where(nutritional_info.columns.Username == username)
+    protUp = db.update(nutritional_info).values(Protein=arr[3]) 
+    protUp = protUp.where(nutritional_info.columns.Username == username)
+    sugUp = db.update(nutritional_info).values(Sugar=arr[4])
+    sugUp = sugUp.where(nutritional_info.columns.Username == username)
     connection.execute(calUp)
     connection.execute(fatUp)
     connection.execute(carbUp)
     connection.execute(protUp)
     connection.execute(sugUp)
+    
+
+addRunningTotal(100.0, 13.5, 50.0, 12.0, 50.0, "bob")
