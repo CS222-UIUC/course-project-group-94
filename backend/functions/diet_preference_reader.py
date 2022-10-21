@@ -15,14 +15,15 @@ Parameters:
                          ("None" or "Normal"))
     biologicalSex -> string (biological sex of the user ("M", "F", or "N"))
 Return:
-    (calories, sugarLowerRange, sugarUpperRange, lowerFat, upperFat) ->
-        tuple (data about the accepted ranges of caloric, added sugar, and
-               fat intake in calories, grams, and grams respectively based on
-               inputs)
+    (calories, sugarLowerRange, sugarUpperRange, lowerFat, upperFat, protein,
+    carbs) -> tuple (data about the accepted ranges of caloric, added sugar,
+                fat intake, protein, and carbohydrates respectively based on
+                inputs with the caloric intake measured in calories and
+                everyting else measured in grams)
 '''
 
 
-def dietPreferenceReader(calories, sugarDiet, biologicalSex):
+def dietPreferenceReader(calories, sugarDiet, biologicalSex, protein, carbs):
     sugarLowerRange = 0
     sugarUpperRange = 0
     if sugarDiet == "Normal":
@@ -35,4 +36,5 @@ def dietPreferenceReader(calories, sugarDiet, biologicalSex):
     totalFatPerCalories = calories / 9
     lowerFat = 0.25 * totalFatPerCalories
     upperFat = 0.35 * totalFatPerCalories
-    return (calories, sugarLowerRange, sugarUpperRange, lowerFat, upperFat)
+    return (calories, sugarLowerRange, sugarUpperRange, lowerFat, upperFat,
+            protein, carbs)
