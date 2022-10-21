@@ -9,7 +9,11 @@
         android:id="@+id/loginFragment"
         android:name="com.cs222.nutrify.ui.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/successfulLoginAction"
+            app:destination="@id/nutritionInputFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nutritionInputFragment"
         android:name="com.cs222.nutrify.ui.NutritionInputFragment"

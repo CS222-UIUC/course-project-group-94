@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.cs222.nutrify.databinding.FragmentNutritioninputBinding
 
 class NutritionInputFragment : Fragment() {
+
     private lateinit var binding: FragmentNutritioninputBinding
 
     override fun onCreateView(

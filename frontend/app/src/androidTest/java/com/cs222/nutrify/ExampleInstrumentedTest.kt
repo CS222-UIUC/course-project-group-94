@@ -18,6 +18,5 @@ class ExampleInstrumentedTest {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         Assert.assertEquals("com.cs222.nutrify", appContext.packageName)
-        Assert.assertFalse(true)
     }
 }
