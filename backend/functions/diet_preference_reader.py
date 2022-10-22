@@ -22,7 +22,7 @@ Return:
 '''
 
 
-def dietPreferenceReader(calories, sugarDiet, biologicalSex):
+def dietPreferenceReader(calories, sugarDiet, biologicalSex, bodyWeight):
     sugarLowerRange = 0
     sugarUpperRange = 0
     if sugarDiet == "Normal":
@@ -35,4 +35,5 @@ def dietPreferenceReader(calories, sugarDiet, biologicalSex):
     totalFatPerCalories = calories / 9
     lowerFat = 0.25 * totalFatPerCalories
     upperFat = 0.35 * totalFatPerCalories
-    return (calories, sugarLowerRange, sugarUpperRange, lowerFat, upperFat)
+    protein = 0.8 * bodyWeight
+    return (calories, sugarLowerRange, sugarUpperRange, lowerFat, upperFat, protein)
