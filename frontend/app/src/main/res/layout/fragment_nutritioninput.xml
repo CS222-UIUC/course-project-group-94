@@ -25,7 +25,7 @@
                 android:layout_height="50dp"
                 android:autofillHints="@string/prompt_calories"
                 android:hint="@string/prompt_calories"
-                android:inputType="number" />
+                android:inputType="numberDecimal"/>
 
             <EditText
                 android:id="@+id/fat"
@@ -33,7 +33,7 @@
                 android:layout_height="50dp"
                 android:autofillHints="@string/prompt_fat"
                 android:hint="@string/prompt_fat"
-                android:inputType="number" />
+                android:inputType="numberDecimal" />
 
             <EditText
                 android:id="@+id/sodium"
@@ -41,7 +41,7 @@
                 android:layout_height="50dp"
                 android:autofillHints="@string/prompt_sodium"
                 android:hint="@string/prompt_sodium"
-                android:inputType="number" />
+                android:inputType="numberDecimal" />
 
             <EditText
                 android:id="@+id/carbs"
@@ -49,7 +49,7 @@
                 android:layout_height="50dp"
                 android:autofillHints="@string/prompt_carbs"
                 android:hint="@string/prompt_carbs"
-                android:inputType="number" />
+                android:inputType="numberDecimal" />
 
             <EditText
                 android:id="@+id/sugar"
@@ -57,7 +57,7 @@
                 android:layout_height="50dp"
                 android:autofillHints="@string/prompt_sugar"
                 android:hint="@string/prompt_sugar"
-                android:inputType="number" />
+                android:inputType="numberDecimal" />
 
             <EditText
                 android:id="@+id/protein"
@@ -65,7 +65,7 @@
                 android:layout_height="50dp"
                 android:autofillHints="@string/prompt_protein"
                 android:hint="@string/prompt_protein"
-                android:inputType="number" />
+                android:inputType="numberDecimal" />
 
             <EditText
                 android:id="@+id/calcium"
@@ -73,7 +73,7 @@
                 android:layout_height="50dp"
                 android:autofillHints="@string/prompt_calcium"
                 android:hint="@string/prompt_calcium"
-                android:inputType="number" />
+                android:inputType="numberDecimal" />
 
             <EditText
                 android:id="@+id/iron"
@@ -81,7 +81,7 @@
                 android:layout_height="50dp"
                 android:autofillHints="@string/prompt_iron"
                 android:hint="@string/prompt_iron"
-                android:inputType="number" />
+                android:inputType="numberDecimal" />
 
             <EditText
                 android:id="@+id/potassium"
@@ -89,7 +89,7 @@
                 android:layout_height="50dp"
                 android:autofillHints="@string/prompt_potassium"
                 android:hint="@string/prompt_potassium"
-                android:inputType="number" />
+                android:inputType="numberDecimal" />
 
         </LinearLayout>
 
