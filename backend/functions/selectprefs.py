@@ -9,17 +9,17 @@ import numpy as np
 # comparing it to the diet preferences that the user inputted to see if it goes over or below
 # Created a dictionary that provides information on whether the item's calories, fat, or sugar goes above or below the preferences
 # Will add protein and carbs next week when available in diet_preferences function
-def warningSystem(calories, sugarDiet, biologicalSex, fat):
+def warningSystem(calories, sugarDiet, biologicalSex, fat, protein, bodyWeight):
     engine = db.create_engine('mysql://root:Group94@localhost:3306/Nutrify')
     connection = engine.connect()
     metadata = db.MetaData()
 
-    calories, sugarLowerRange, sugarUpperRange, lowerFat, upperFat = dietPreferenceReader(calories, sugarDiet, biologicalSex)
+    calories, sugarLowerRange, sugarUpperRange, lowerFat, upperFat, protein = dietPreferenceReader(calories, sugarDiet, biologicalSex, protein, bodyWeight)
     nutritional_info = db.Table("Running Total on Daily Nutrition", metadata, autoload = True, autoload_with = engine)
     data = db.select([nutritional_info]).where(nutritional_info.columns.Username == username)
     data = connection.execute(data).fetchall()
     warning = True
-    warningDict = {"Calories": warning, "Fat": warning, "Sugar": warning}
+    warningDict = {"Calories": warning, "Fat": warning, "Sugar": warning, "Protein" : warning}
     if (data[0][0] <= calories):
         warningDict["Calories"] = True
     else:
@@ -32,6 +32,10 @@ def warningSystem(calories, sugarDiet, biologicalSex, fat):
         warningDict["Sugar"] = True
     else:
         warningDict["Sugar"] = False
+    if (data[0][5] <= protein):
+        warningDict["Protein"] = True
+    else:
+        warningDict["Protein"] = False
 
     return warningDict
 
