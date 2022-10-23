@@ -20,5 +20,3 @@ def login(username, password):
     if retrieve_password[0][1] != password:
         return 2
     return 0
-
-print(login('andre','pissgan'))
