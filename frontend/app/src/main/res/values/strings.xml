@@ -20,4 +20,6 @@
     <string name="prompt_potassium">Potassium</string>
     <string name="submit_nutrition_info">Submit</string>
     <string name="add_food_information">Add Food Item</string>
+    <string name="unfilled_text_boxes_add">Please fill out all text boxes</string>
+    <string name="filled_text_boxes_add">Food information received</string>
 </resources>
