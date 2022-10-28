@@ -13,10 +13,11 @@ Parameters:
     protein -> float (amount of protein in grams in food item)
     sugar -> float (amount of sugar in the food item)
     username -> string (username of user)
+    adding -> bool (true if values are being added and false if subtracted)
 '''
 
 
-def addRunningTotal(calories, fat, carbs, protein, sugar, username):
+def modRunningTotal(calories, fat, carbs, protein, sugar, username, adding):
     engine = db.create_engine('mysql://root:Group94@localhost:3306/nutrify')
     connection = engine.connect()
     metadata = db.MetaData()
@@ -26,18 +27,25 @@ def addRunningTotal(calories, fat, carbs, protein, sugar, username):
                                                    Username == username)
     retrieve = connection.execute(retrieve).fetchall()
     arr = np.zeros(5)
-    arr[0] = retrieve[0][0] + calories  # add increments
-    arr[1] = retrieve[0][1] + fat
-    arr[2] = retrieve[0][2] + carbs
-    arr[3] = retrieve[0][3] + protein
-    arr[4] = retrieve[0][4] + sugar
+    if adding:
+        arr[0] = retrieve[0][0] + calories  # add increments
+        arr[1] = retrieve[0][1] + fat
+        arr[2] = retrieve[0][2] + carbs
+        arr[3] = retrieve[0][3] + protein
+        arr[4] = retrieve[0][4] + sugar
+    else:
+        arr[0] = max(0, retrieve[0][0] - calories)  # subtract increments
+        arr[1] = max(0, retrieve[0][1] - fat)
+        arr[2] = max(0, retrieve[0][2] - carbs)
+        arr[3] = max(0, retrieve[0][3] - protein)
+        arr[4] = max(0, retrieve[0][4] - sugar)
     calUp = db.update(nutritional_info).values(Calories=arr[0])
     calUp = calUp.where(nutritional_info.columns.Username == username)
     fatUp = db.update(nutritional_info).values(Fat=arr[1])
     fatUp = fatUp.where(nutritional_info.columns.Username == username)
     carbUp = db.update(nutritional_info).values(Carbs=arr[2])
     carbUp = carbUp.where(nutritional_info.columns.Username == username)
-    protUp = db.update(nutritional_info).values(Protein=arr[3]) 
+    protUp = db.update(nutritional_info).values(Protein=arr[3])
     protUp = protUp.where(nutritional_info.columns.Username == username)
     sugUp = db.update(nutritional_info).values(Sugar=arr[4])
     sugUp = sugUp.where(nutritional_info.columns.Username == username)
@@ -46,6 +54,3 @@ def addRunningTotal(calories, fat, carbs, protein, sugar, username):
     connection.execute(carbUp)
     connection.execute(protUp)
     connection.execute(sugUp)
-    
-
-addRunningTotal(100.0, 13.5, 50.0, 12.0, 50.0, "bob")
