@@ -25,11 +25,13 @@
     <string name="filled_text_boxes_add">Food information received</string>
     
     <!-- Strings related to the preferences of the user-->
-    <string name="instructions_on_user_preferences">Please enter the amount that you want your diet to stay under</string>
+    <string name="instructions_on_user_preferences">Please enter the amounts for each nutrition that you want your diet to stay under</string>
     <string name="user_age">Age</string>
     <string name="user_fat_pref">Fat</string>
     <string name="user_carbs_pref">Carbs</string>
     <string name="user_protein_pref">Protein</string>
     <string name="user_calories_pref">Calories</string>
+    <string name="user_sodium_pref">Sodium</string>
+    <string name="user_iron_pref">Iron</string>
     <string name="save_user_pref">Save</string>
 </resources>
