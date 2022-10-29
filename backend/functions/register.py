@@ -25,10 +25,11 @@ def register(username, password):
     user_preferences = db.Table('User Preferences', metadata, autoload=True, autoload_with=engine)
     insert_userinfo = db.insert(user_info).values(Username=username, Password=password)
     insert_nutritionalinfo = db.insert(nutritional_info).values(Calories=0, Fat=0, Carbs=0,
-                                Protein=0, Sugar=0, Username=username)
+                                Protein=0, Sugar=0, Sodium=0, Iron=0, Username=username)
     insert_userpreferences = db.insert(user_preferences).values(Calories=0, Fat=0, Carbs=0,
-                                Protein=0, Sugar=0, Username=username)
+                                Protein=0, Sugar=0, Sodium=0, Iron=0, Username=username)
     connection.execute(insert_userinfo)
     connection.execute(insert_nutritionalinfo)
     connection.execute(insert_userpreferences)
     return 0
+    
