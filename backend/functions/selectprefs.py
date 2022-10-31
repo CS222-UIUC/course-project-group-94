@@ -14,12 +14,12 @@ def warningSystem(calories, sugarDiet, biologicalSex, fat, bodyWeight, protein, 
     connection = engine.connect()
     metadata = db.MetaData()
 
-    calories, sugarLowerRange, sugarUpperRange, lowerFat, upperFat, protein, carbs = dietPreferenceReader(calories, sugarDiet, biologicalSex, bodyWeight, protein, carbs)
+    calories, sugarLowerRange, sugarUpperRange, lowerFat, upperFat, protein, carbs, sodiumLimit, ironLower = dietPreferenceReader(calories, sugarDiet, biologicalSex, bodyWeight, protein, carbs)
     nutritional_info = db.Table("Running Total on Daily Nutrition", metadata, autoload = True, autoload_with = engine)
     data = db.select([nutritional_info]).where(nutritional_info.columns.Username == username)
     data = connection.execute(data).fetchall()
     warning = True
-    warningDict = {"Calories": warning, "Fat": warning, "Sugar": warning, "Protein" : warning, "Carbs" : warning}
+    warningDict = {"Calories": warning, "Fat": warning, "Sugar": warning, "Protein" : warning, "Carbs" : warning, "Sodium" : warning, "Iron" : warning}
     if (data[0][0] <= calories):
         warningDict["Calories"] = True
     else:
@@ -40,6 +40,14 @@ def warningSystem(calories, sugarDiet, biologicalSex, fat, bodyWeight, protein, 
         warningDict["Carbs"] = True
     else:
         warningDict["Carbs"] = False
+    if (data[0][5] <= sodiumLimit):
+        warningDict["Sodium"] = True
+    else:
+        warningDict["Sodium"] = False
+    if (data[0][6] >= ironLower):
+        warningDict["Iron"] = True
+    else:
+        warningDict["Iron"] = False
     
 
     return warningDict
