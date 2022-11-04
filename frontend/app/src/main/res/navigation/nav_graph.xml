@@ -18,4 +18,8 @@
         android:id="@+id/nutritionInputFragment"
         android:name="com.cs222.nutrify.ui.NutritionInputFragment"
         android:label="NutritionInputFragment"/>
+    <fragment
+        android:id="@+id/userPreferencesFragment"
+        android:name="com.cs222.nutrify.ui.UserPreferencesFragment"
+        android:label="UserPreferencesFragment" />
 </navigation>
