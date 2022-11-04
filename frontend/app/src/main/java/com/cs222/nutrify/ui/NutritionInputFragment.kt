@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.Navigation
 import com.cs222.nutrify.R
 import com.cs222.nutrify.databinding.FragmentNutritioninputBinding
 import com.cs222.nutrify.viewmodels.NutritionInputViewModel
@@ -62,6 +63,10 @@ class NutritionInputFragment : Fragment() {
                 editTextList.forEach { it.text.clear() }
                 Toast.makeText(activity, R.string.filled_text_boxes_add, Toast.LENGTH_SHORT).show()
             }
+        }
+
+        binding.goToUserPreferencesFromInput.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.updateUserPreferencesAction)
         }
     }
 
