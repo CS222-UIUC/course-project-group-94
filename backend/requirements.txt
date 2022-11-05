@@ -8,6 +8,9 @@ pytest-cov
 # Dependencies
 Django
 
+#api
+djangorestframework
+
 #database
 sqlalchemy
 mysqlclient
