@@ -34,4 +34,9 @@
     <string name="user_sodium_pref">Sodium</string>
     <string name="user_iron_pref">Iron</string>
     <string name="save_user_pref">Save</string>
+    <string-array name="gender">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+    <string name="button_to_user_prefs_from_input">My Preferences</string>
 </resources>

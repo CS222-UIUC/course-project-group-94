@@ -3,6 +3,7 @@ package com.cs222.nutrify
 import androidx.navigation.findNavController
 import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isEnabled
 import androidx.test.espresso.matcher.ViewMatchers.withHint
@@ -25,7 +26,7 @@ class NutritionInputFragmentTest {
     }
 
     @Test
-    fun testAddButtonIsEnabledAndTextAExists() {
+    fun testAddButtonIsEnabledAndTextExists() {
         onView(withId(R.id.addNutritionInfo))
             .check(matches(isEnabled()))
 
@@ -34,12 +35,24 @@ class NutritionInputFragmentTest {
     }
 
     @Test
-    fun testSubmitButtonIsEnabledAndTextAExists() {
+    fun testSubmitButtonIsEnabledAndTextExists() {
         onView(withId(R.id.submit))
             .check(matches(isEnabled()))
 
         onView(withId(R.id.submit))
             .check(matches(withText(R.string.submit_nutrition_info)))
+    }
+
+    @Test
+    fun testMyPreferencesButton() {
+        onView(withId(R.id.go_to_user_preferences_from_input))
+            .check(matches(isEnabled()))
+
+        onView(withId(R.id.go_to_user_preferences_from_input))
+            .perform(click())
+
+        onView(withId(R.id.enter_age))
+            .check(matches(withHint(R.string.user_age)))
     }
 
     @Test
