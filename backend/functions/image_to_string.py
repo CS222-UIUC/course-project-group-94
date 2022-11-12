@@ -9,7 +9,7 @@ as they wish and accessed by the function to read data from the string.
 Parameters: imgName -> string (Name of image file)
 Returns: imgString -> string (converted string from image)
 '''
-
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract'
 
 def convertImageToString(imgName):
     imgString = pytesseract.image_to_string(Image.open(imgName))
