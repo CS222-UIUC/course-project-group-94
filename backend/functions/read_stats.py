@@ -20,7 +20,7 @@ def getFromImage(convertedImg):
         fat += checkString[fatIndex]
         fatIndex += 1
     carbIndex = checkString.index("totalcarbohydrate") + \
-                len("totalcarbohydrate")
+        len("totalcarbohydrate")
     carb = ""
     while checkString[carbIndex].isnumeric():
         carb += checkString[carbIndex]
