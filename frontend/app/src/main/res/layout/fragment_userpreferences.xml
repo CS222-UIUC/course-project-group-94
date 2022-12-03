@@ -76,8 +76,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:hint="@string/user_fat_pref"
-                        android:inputType="numberDecimal"
-                        android:textAlignment="center" />
+                        android:inputType="numberDecimal"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -93,8 +92,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/user_carbs_pref"
-                        android:inputType="numberDecimal"
-                        android:textAlignment="center" />
+                        android:inputType="numberDecimal"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -110,8 +108,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:hint="@string/user_protein_pref"
-                        android:inputType="numberDecimal"
-                        android:textAlignment="center" />
+                        android:inputType="numberDecimal"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -127,8 +124,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:hint="@string/user_calories_pref"
-                        android:inputType="numberDecimal"
-                        android:textAlignment="center" />
+                        android:inputType="numberDecimal"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -144,8 +140,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:hint="@string/user_sodium_pref"
-                        android:inputType="numberDecimal"
-                        android:textAlignment="center"/>
+                        android:inputType="numberDecimal"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -161,8 +156,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:hint="@string/user_iron_pref"
-                        android:inputType="numberDecimal"
-                        android:textAlignment="center" />
+                        android:inputType="numberDecimal"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
