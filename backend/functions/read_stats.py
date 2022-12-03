@@ -1,7 +1,8 @@
 '''
 Function to retrieve numeric values on label from the converted string.
 Parameters: convertedImg -> string (converted image)
-Returns: tuple -> calories, fat, carbohydrates, and sugar in grams
+Returns: list -> calories, fat, carbohydrates, protein, and sugar in
+    grams, sodium and iron in milligrams
 '''
 
 
@@ -29,4 +30,25 @@ def getFromImage(convertedImg):
     while checkString[sugarIndex].isnumeric():
         sugar += checkString[sugarIndex]
         sugarIndex += 1
-    return (int(calories), int(fat), int(carb), int(sugar))
+    proteinIndex = checkString.index("protein") + len("protein")
+    protein = ""
+    while checkString[proteinIndex].isnumeric():
+        protein += checkString[proteinIndex]
+        proteinIndex += 1
+    sodiumIndex = checkString.index("sodium") + len("sodium")
+    sodium = ""
+    while checkString[sodiumIndex].isnumeric():
+        sodium += checkString[sodiumIndex]
+        sodiumIndex += 1
+    ironIndex = checkString.index("iron") + 4
+    iron = ""
+    while checkString[ironIndex].isnumeric():
+        iron += checkString[ironIndex]
+        ironIndex += 1
+    listOf = [calories, fat, carb, protein, sugar, sodium, iron]
+    numericArr = []
+    for i in range(len(listOf)):
+        if listOf[i] == "":
+            listOf[i] = 0  # check for bad read
+        numericArr.append(int(listOf[i]))
+    return numericArr
