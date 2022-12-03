@@ -16,4 +16,3 @@ def testReadStats():
     assert contents[4] == 1, "Incorrect read for sugar"
     assert contents[5] == 0, "Incorrect read for sodium"
     assert contents[6] == 1, "Incorrect read for iron"
-
