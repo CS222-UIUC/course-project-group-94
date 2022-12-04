@@ -47,7 +47,7 @@ Frontend Installation:
 
 Backend Installation:
 1. Open the backend folder
-2. Run pip install -R requirements.txt to install all python dependencies
+2. Run pip install -r requirements.txt to install all python dependencies
 
 Group Members:
 Justin Chen - Frontend, Allen Guo - Backend, Andrew Zhao - Backend (Database), Maanav Agrawal - Backend
