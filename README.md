@@ -1,9 +1,25 @@
 # course-project-group-94
 course-project-group-94 created by GitHub Classroom
 
-Pitch:
-People all across the globe who are interested in fitness and nutrition pay very close attention to what they consume.
-Our Nutrify application makes it easier for people to determine what food items are healthy to eat for their desired diet just from an input of a food label image and are also given recommendations for how to achieve their fitness goals using an algorithm that calculates calorie deficit or calorie surplus and suggests a diet to follow by diversifying vegetables and fruits.
+Functionality:
+The Nutrify app allows a user to input scanned labels to add to a list of purchases for a daily diet. The app uses a database to keep track of:
+- Calories
+- Fat
+- Protein
+- Sugar
+- Carbohydrates
+- And more
+
+The user is able to set their preferences based on their preferred diet and biological data. The app will then keep track of whether the user’s inputted diet meets the criteria or not.
+
+
+Motivation:
+With new food products coming out at very fast rates, it can become tedious work to manually keep track of one’s diet or to continuously input to and update existing apps for the purpose of maintaining a diet.
+Hence…
+- Use the universality of food labels
+- Work regardless of type of product
+- Eventually would be quick and easy to scan labels on the go with PyTesseract
+
 
 Backend Component:
 Our Backend component will have a database that stores user input of images and nutritional information. 
@@ -18,3 +34,20 @@ Our Frontend development will primarily be an Android app built with Kotlin.
 The interface will prompt the user for permission to access the camera and will also allow the user to upload an image of a nutrition label and input their dietary preferences and nutritional goals. 
 The UI will display a list of recommended food items and appropriate diet to follow based on the analysis of the diet and food label.
 Lastly, the user can be directed to a list of research regarding certain food items by accessing the backend database from MySQL or SQLite.
+
+Prerequisites for Use:
+1. Tesseract executable installed on computer and in the path 
+2. Java 11+
+3. Python 3.7+ 
+4. MySQL
+
+Frontend Installation:
+1. Open the frontend folder in Android Studio.
+2. Build and run the app on the emulator 
+
+Backend Installation:
+1. Open the backend folder
+2. Run pip install -R requirements.txt to install all python dependencies
+
+Group Members:
+Justin Chen - Frontend, Allen Guo - Backend, Andrew Zhao - Backend (Database), Maanav Agrawal - Backend
