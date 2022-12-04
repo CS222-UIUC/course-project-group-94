@@ -1,9 +1,11 @@
 import sqlalchemy as db
-from datetime import date
-import time
+# from datetime import date
+# import time
 
 # function that sets all values in all columns of running total to 0
-#   except username
+# except username
+
+
 def resetRunningTotal():
     engine = db.create_engine('mysql://root:Group94@localhost:3306/nutrify')
     connection = engine.connect()
@@ -25,8 +27,9 @@ def resetRunningTotal():
     connection.execute(sodUp)
     connection.execute(ironUp)
 
+
 # continuously running script that checks if the date has changed every hour,
-#   if so then call resetRunningTotal
+# if so then call resetRunningTotal
 '''
 currdate = date.today()
 while True:
@@ -35,4 +38,4 @@ while True:
         currdate = date.today()
     time.sleep(3600)
 '''
-#currently commented out since infinite loop doesn't work 
+# currently commented out since infinite loop doesn't work

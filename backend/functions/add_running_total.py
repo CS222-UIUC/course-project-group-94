@@ -37,7 +37,7 @@ def addRunningTotal(calories, fat, carbs, protein, sugar, username):
     fatUp = fatUp.where(nutritional_info.columns.Username == username)
     carbUp = db.update(nutritional_info).values(Carbs=arr[2])
     carbUp = carbUp.where(nutritional_info.columns.Username == username)
-    protUp = db.update(nutritional_info).values(Protein=arr[3]) 
+    protUp = db.update(nutritional_info).values(Protein=arr[3])
     protUp = protUp.where(nutritional_info.columns.Username == username)
     sugUp = db.update(nutritional_info).values(Sugar=arr[4])
     sugUp = sugUp.where(nutritional_info.columns.Username == username)
@@ -46,6 +46,6 @@ def addRunningTotal(calories, fat, carbs, protein, sugar, username):
     connection.execute(carbUp)
     connection.execute(protUp)
     connection.execute(sugUp)
-    
+
 
 addRunningTotal(100.0, 13.5, 50.0, 12.0, 50.0, "bob")
