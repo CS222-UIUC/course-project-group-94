@@ -61,5 +61,18 @@ class NutritionInputViewModel : ViewModel() {
         nutritionInformationList.add(nutritionInformation)
     }
 
+    fun undoPreviousAddition() {
+        val previousInfo: NutritionInformation = nutritionInformationList.removeLast()
+        calories.value = previousInfo.calories.toString()
+        fat.value = previousInfo.fat.toString()
+        sodium.value = previousInfo.sodium.toString()
+        carbs.value = previousInfo.carbs.toString()
+        sugar.value = previousInfo.sugar.toString()
+        protein.value = previousInfo.protein.toString()
+        calcium.value = previousInfo.calcium.toString()
+        iron.value = previousInfo.iron.toString()
+        potassium.value = previousInfo.potassium.toString()
+    }
+
     fun getNutritionInformationList(): List<NutritionInformation> = nutritionInformationList
 }

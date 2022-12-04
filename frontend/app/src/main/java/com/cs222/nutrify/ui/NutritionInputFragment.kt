@@ -68,6 +68,15 @@ class NutritionInputFragment : Fragment() {
         binding.goToUserPreferencesFromInput.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.updateUserPreferencesAction)
         }
+
+        binding.undoPreviousNutritionInfo.setOnClickListener {
+            if (viewModel.getNutritionInformationList().isEmpty()) {
+                Toast.makeText(activity, R.string.no_previous_items_exist, Toast.LENGTH_SHORT).show()
+            } else {
+                viewModel.undoPreviousAddition()
+                Toast.makeText(activity, R.string.previous_item_exists, Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     private fun setCalorieObservers() {
