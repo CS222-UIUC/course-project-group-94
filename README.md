@@ -1,5 +1,5 @@
 # course-project-group-94
-course-project-group-94 created by GitHub Classroom
+Nutrify App : Group 94
 
 Functionality:
 The Nutrify app allows a user to input scanned labels to add to a list of purchases for a daily diet. The app uses a database to keep track of:
