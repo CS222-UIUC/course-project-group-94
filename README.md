@@ -1,4 +1,4 @@
-# course-project-group-94
+# Nutrify App : course-project-group-94
 Nutrify App : Group 94
 
 Functionality:
