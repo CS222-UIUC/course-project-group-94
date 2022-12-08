@@ -27,7 +27,6 @@ def resetRunningTotal():
     connection.execute(sodUp)
     connection.execute(ironUp)
 
-
 # continuously running script that checks if the date has changed every hour,
 # if so then call resetRunningTotal
 '''
@@ -39,3 +38,4 @@ while True:
     time.sleep(3600)
 '''
 # currently commented out since infinite loop doesn't work
+

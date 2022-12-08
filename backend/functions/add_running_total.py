@@ -16,7 +16,7 @@ Parameters:
 '''
 
 
-def addRunningTotal(calories, fat, carbs, protein, sugar, username):
+def addRunningTotal(calories, fat, carbs, protein, sugar, sodium, iron, username):
     engine = db.create_engine('mysql://root:Group94@localhost:3306/nutrify')
     connection = engine.connect()
     metadata = db.MetaData()
@@ -25,12 +25,14 @@ def addRunningTotal(calories, fat, carbs, protein, sugar, username):
     retrieve = db.select([nutritional_info]).where(nutritional_info.columns.
                                                    Username == username)
     retrieve = connection.execute(retrieve).fetchall()
-    arr = np.zeros(5)
+    arr = np.zeros(7)
     arr[0] = retrieve[0][0] + calories  # add increments
     arr[1] = retrieve[0][1] + fat
     arr[2] = retrieve[0][2] + carbs
     arr[3] = retrieve[0][3] + protein
     arr[4] = retrieve[0][4] + sugar
+    arr[5] = retrieve[0][5] + sodium
+    arr[6] = retrieve[0][6] + iron
     calUp = db.update(nutritional_info).values(Calories=arr[0])
     calUp = calUp.where(nutritional_info.columns.Username == username)
     fatUp = db.update(nutritional_info).values(Fat=arr[1])
@@ -41,11 +43,14 @@ def addRunningTotal(calories, fat, carbs, protein, sugar, username):
     protUp = protUp.where(nutritional_info.columns.Username == username)
     sugUp = db.update(nutritional_info).values(Sugar=arr[4])
     sugUp = sugUp.where(nutritional_info.columns.Username == username)
+    sodUp = db.update(nutritional_info).values(Sodium=arr[5])
+    sodUp = sodUp.where(nutritional_info.columns.Username == username)
+    ironUp = db.update(nutritional_info).values(Iron=arr[6])
+    ironUp = ironUp.where(nutritional_info.columns.Username == username)
     connection.execute(calUp)
     connection.execute(fatUp)
     connection.execute(carbUp)
     connection.execute(protUp)
     connection.execute(sugUp)
-
-
-addRunningTotal(100.0, 13.5, 50.0, 12.0, 50.0, "bob")
+    connection.execute(sodUp)
+    connection.execute(ironUp)
