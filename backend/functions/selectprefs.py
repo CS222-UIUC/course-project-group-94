@@ -3,50 +3,37 @@ import sqlalchemy as db
 from sqlalchemy.sql import select
 import numpy as np
 
-#currently connecting to my local mySQL database (username: root, password: Group94)
+'''
+Warning system that return a dictionary of warnings for each nutritional category based on
+daily running total and the users preferences
+Will return a True warning if the goal for that category based on whether its under/over the limit
+(over for most categories, under for protein and iron)
+'''
 
-# Working on gathering data from the database and 
-# comparing it to the diet preferences that the user inputted to see if it goes over or below
-# Created a dictionary that provides information on whether the item's calories, fat, or sugar goes above or below the preferences
-# Will add protein and carbs next week when available in diet_preferences function
-def warningSystem(calories, sugarDiet, biologicalSex, fat, bodyWeight, protein, carbs):
+def warningSystem(calories, sugarDiet, biologicalSex, fat, bodyWeight, protein, carbs, username):
     engine = db.create_engine('mysql://root:Group94@localhost:3306/Nutrify')
     connection = engine.connect()
     metadata = db.MetaData()
-
-    calories, sugarLowerRange, sugarUpperRange, lowerFat, upperFat, protein, carbs, sodiumLimit, ironLower = dietPreferenceReader(calories, sugarDiet, biologicalSex, bodyWeight, protein, carbs)
+    user_preferences = db.Table("User Preferences", metadata, autoload=True, autoload_with = engine)
     nutritional_info = db.Table("Running Total on Daily Nutrition", metadata, autoload = True, autoload_with = engine)
     data = db.select([nutritional_info]).where(nutritional_info.columns.Username == username)
     data = connection.execute(data).fetchall()
-    warning = True
-    warningDict = {"Calories": warning, "Fat": warning, "Sugar": warning, "Protein" : warning, "Carbs" : warning, "Sodium" : warning, "Iron" : warning}
-    if (data[0][0] <= calories):
+    preferences = db.select([user_preferences]).where(user_preferences.columns.Username == username)
+    preferences = connection.execute(preferences).fetchall()
+    warningDict = {"Calories": False, "Fat": False, "Sugar": False, "Protein" : False, "Carbs" : False, "Sodium" : False, "Iron" : False}
+    if (data[0][0] >= preferences[0][0]):
         warningDict["Calories"] = True
-    else:
-        warningDict["Calories"] = False
-    if (data[0][1] >= lowerFat) and (data[0][1] <= upperFat):
+    if (data[0][1] >= preferences[0][1]):
         warningDict["Fat"] = True
-    else:
-        warningDict["Fat"] = False
-    if (data[0][4] >= sugarLowerRange) and (data[0][4] <= sugarUpperRange):
+    if (data[0][4] >= preferences[0][4]):
         warningDict["Sugar"] = True
-    else:
-        warningDict["Sugar"] = False
     if (data[0][3] <= protein):
         warningDict["Protein"] = True
-    else:
-        warningDict["Protein"] = False
-    if (data[0][2] <= carbs):
+    if (data[0][2] >= carbs):
         warningDict["Carbs"] = True
-    else:
-        warningDict["Carbs"] = False
-    if (data[0][5] <= sodiumLimit):
+    if (data[0][5] >= preferences[0][5]):
         warningDict["Sodium"] = True
-    else:
-        warningDict["Sodium"] = False
-    if (data[0][6] >= ironLower):
+    if (data[0][6] <= preferences[0][6]):
         warningDict["Iron"] = True
-    else:
-        warningDict["Iron"] = False
     
     return warningDict
